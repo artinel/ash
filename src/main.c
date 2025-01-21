@@ -19,6 +19,8 @@ void process_cmd(char* cmd){
 	//Check for built-in commands
 	if(str_equ(cmd, "clear"))
 		clear();
+	else if(str_equ(cmd, "pwd"))
+		pwd();
 	else
 		prints(T_RED"Command not found!!!\n"T_NORMAL);
 }
