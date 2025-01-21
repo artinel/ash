@@ -11,7 +11,6 @@ void process_cmd();
 int main(int argc, char** argv){
 	clear();
 	prints("Welcome to Ash version %s\n", ASH_VERSION);
-	cd("mnt");
 	readline();
 	return 0;
 }
