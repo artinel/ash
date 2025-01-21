@@ -21,6 +21,6 @@ void cd(const char* path){
 	if(res < 0){
 		res = -res;
 		if(res == E_NOFD)
-			prints(T_RED"No such file or directory!!!\n"T_NORMAL);
+			printse(T_RED"No such file or directory!!!\n"T_NORMAL);
 	}
 }

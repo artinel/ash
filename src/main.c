@@ -29,7 +29,7 @@ void process_cmd(char* cmd){
 		else
 			cd("/");
 	}else
-		prints(T_RED"Command not found!!!\n"T_NORMAL);
+		printse(T_RED"Command not found!!!\n"T_NORMAL);
 
 	free(args);
 }
