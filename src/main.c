@@ -10,9 +10,14 @@ void readline();
 void process_cmd();
 
 int main(int argc, char** argv){
-	clear();
-	prints("Welcome to Ash version %s\n", ASH_VERSION);
-	readline();
+	if(argc > 1){
+		if(str_equ(argv[1], "-v"))
+			prints("Ash shell v%s\n", ASH_VERSION);
+	}else{
+		clear();
+		prints("Welcome to Ash version %s\n", ASH_VERSION);
+		readline();
+	}
 	return 0;
 }
 
