@@ -11,6 +11,7 @@ void process_cmd();
 int main(int argc, char** argv){
 	clear();
 	prints("Welcome to Ash version %s\n", ASH_VERSION);
+	cd("mnt");
 	readline();
 	return 0;
 }
@@ -21,7 +22,9 @@ void process_cmd(char* cmd){
 		clear();
 	else if(str_equ(cmd, "pwd"))
 		pwd();
-	else
+	else if(str_equ(cmd, "cd")){
+		cd("..");
+	}else
 		prints(T_RED"Command not found!!!\n"T_NORMAL);
 }
 
