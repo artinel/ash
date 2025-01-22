@@ -2,6 +2,7 @@
 #include<std/string.h>
 #include<sys/time.h>
 #include<std/mem.h>
+#include<sys/exec.h>
 #include"version.h"
 #include"command.h"
 #include"prompt.h"
@@ -33,8 +34,15 @@ void process_cmd(char* cmd){
 			cd(args[1]);
 		else
 			cd("/");
-	}else
-		printse(T_RED"Command not found!!!\n"T_NORMAL);
+	}else{
+		pid_t pid = fork();
+		if(pid == 0){
+			char* envp[1];
+			envp[0] = 0;
+			exec(cmd, (const char* const*)args, (const char* const*)envp);
+		}else{}
+			//printse(T_RED"Command not found!!!\n"T_NORMAL);	
+	}
 
 	free(args);
 }
