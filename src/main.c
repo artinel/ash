@@ -39,8 +39,13 @@ void process_cmd(char* cmd){
 		if(pid == 0){
 			char* envp[1];
 			envp[0] = 0;
-			exec(cmd, (const char* const*)args, (const char* const*)envp);
-		}else{}
+			int res = exec(cmd, (const char* const*)args, (const char* const*)envp);
+			terminate(res);
+		}else{
+			siginfo_t info;
+			pid_t res = waitid(P_PID, pid, &info, WEXITED, NULL);
+			prints("\n Process returned %d\n", res);
+		}
 			//printse(T_RED"Command not found!!!\n"T_NORMAL);	
 	}
 
