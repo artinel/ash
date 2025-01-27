@@ -35,7 +35,7 @@ void process_cmd(char* cmd){
 		else
 			cd("/");
 	}else if(str_equ(cmd, "exit")){
-		terminate(0);
+		cmd_exit(0);
 	}else{
 		pid_t pid = fork();
 		if(pid == 0){

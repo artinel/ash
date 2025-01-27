@@ -2,6 +2,7 @@
 #include<std/io.h>
 #include<sys/dir.h>
 #include<error.h>
+#include<sys/exec.h>
 
 //Built-in commmands
 
@@ -23,4 +24,8 @@ void cd(const char* path){
 		if(res == E_NOFD)
 			printse(T_RED"No such file or directory!!!\n"T_NORMAL);
 	}
+}
+
+void cmd_exit(int error_code){
+	terminate(0);
 }
